@@ -1,0 +1,18 @@
+-- basic type (8개) --
+
+    boolean
+    char
+    byte
+    short
+    int
+    long
+    float
+    double
+
+-- reference type (1개) --
+
+    * 용도 :
+    - 배열에 대한 레퍼런스
+    - 클래스에 대한 레퍼런스
+    - 인터페이스에 대한 레퍼런스
+
