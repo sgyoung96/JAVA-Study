@@ -5,7 +5,7 @@ public class GradeSwitch {
     학점이 C, D 인 학생에게는 "좀 더 노력하세요.",
     학점이 F 인 학생에게는 "다음 학기에 다시 수강하세요."
     를 출력하는 프로그램을 switch 문의 break 를 잘 활용하여 작성하라.
-    예외 처리는 "잘못된 학점입니다."
+    예외 처리는 "잘못된 학점입니다." 로 작성하기.
      */
     public static void main(String[] args) {
         String message = printMessage(30);
