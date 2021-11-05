@@ -1,3 +1,4 @@
+// 예제 2-13
 public class GradeSwitch {
     /*
     학점이 A, B 인 학생에게는 "참 잘하였습니다.",
