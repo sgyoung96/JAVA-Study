@@ -3,3 +3,4 @@
 예제 3-1 ) class ForSample            : 1부터 10까지 숫자의 합을 출력
 예제 3-2 ) class WhileSample          : 입력된 수의 평균 구하기
                                         --> 안드로이드 스튜디오로 이동 --> 샘플 앱 제작 (WhileSmaple)
+예제 3-3 ) class DoWhileSample        : a 부터 z 까지 출력
