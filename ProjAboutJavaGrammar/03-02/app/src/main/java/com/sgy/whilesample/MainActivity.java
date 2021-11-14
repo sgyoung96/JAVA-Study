@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> userInputGroup;
 
-    private BigDecimal numSum;
-    private ArrayList<BigDecimal> numSumArr;
-    private BigDecimal numSize;
-    private BigDecimal numAvg;
+    private double numSum;
+    private ArrayList<Double> numSumArr;
+    private double numSize;
+    private double numAvg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         userInputGroup = new ArrayList<>();
 
-        numSum = new BigDecimal(0);
-        numSize = new BigDecimal(0);
-        numSumArr = new ArrayList<BigDecimal>();
+        numSum = 0;
+        numSize = 0;
+        numSumArr = new ArrayList<Double>();
 
         btnUserInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,21 +65,31 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 } else if (etUserInput.getText().toString().equals("0")) {
                     etUserInput.setText("");
-                    calAvg();
+                    // calAvg();
                     return;
                 }
 
                 userInputGroup.add(etUserInput.getText().toString()); // 배열에 모든 숫자 값 저장(String 형)
                 tvNumGroup.setText(userInputGroup.toString());
 
-                numSumArr.add(new BigDecimal(etUserInput.getText().toString()));
+                numSumArr.add(Double.parseDouble(etUserInput.getText().toString()));
                 for (int i = 0; i < numSumArr.size(); i++) {
-                    numSum = numSum.add(numSumArr.get(i));
+                    if (numSumArr.size() == 1) {
+                        numSum = numSumArr.get(i);
+                        etUserInput.setText("");
+                    } else if (numSumArr.size() >= 2) {
+                        numSum = numSum + numSumArr.get(i);
+                    }
+//                    } else if (numSumArr.size() == 3) {
+//                        numSum = numSum + numSumArr.get(i) - numSumArr.get(i - 1) - numSumArr.get(i - 2);
+//                    } else {
+//                        numSum = numSum + numSumArr.get(i) - numSumArr.get(i - 1);
+//                    }
                 }
+                Toast.makeText(getApplicationContext(), String.valueOf(numSum), Toast.LENGTH_SHORT).show();
 
                 etUserInput.setText("");
             }
-
         });
 
         btnCalSum.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 if (etUserInput.getText().toString().equals("0")) {
                     etUserInput.setText("");
                 }
-                calAvg();
+                // calAvg();
             }
         });
     }
@@ -98,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
             return;
         }
-        numSize = new BigDecimal(numSumArr.size());
-        numAvg = new BigDecimal(String.valueOf(numSum.divide(numSize)));
-        tvResultSum.setText(numAvg.toString());
+        numSize = numSumArr.size() -1;
+        numAvg = numSum / numSize;
+        tvResultSum.setText(String.valueOf(numAvg));
     }
 }
