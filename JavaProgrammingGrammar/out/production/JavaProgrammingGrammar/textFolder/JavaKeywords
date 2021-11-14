@@ -1,5 +1,5 @@
     abstract            :
-    continue            :
+    continue            : 반복문을 완전히 빠져나가지 않으면서, 다음 라인의 구문을 실행하지 않고, 다음 반복문으로 이동 (i++)
     for                 :
     new                 :
     switch              :
@@ -16,7 +16,7 @@
     private             :
     this                :
 
-    break               :
+    break               : 반복문 등을 즉시 빠져나감
     double              :
     implements          :
     protected           :

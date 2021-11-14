@@ -1,5 +1,5 @@
     abstract            :
-    continue            :
+    continue            : 반복문을 완전히 빠져나가지 않으면서, 다음 라인의 구문을 실행하지 않고, 다음 반복문으로 이동 (i++)
     for                 :
     new                 :
     switch              :
@@ -13,13 +13,13 @@
     boolean             :
     do                  :
     goto                :
-    private             :
+    private             : 슈퍼클래스의 멤버에 private 접근지정자가 지정되면 서브 클래스라도 자기 멤버 같이 직접 사용할 수 없다.
     this                :
 
-    break               :
+    break               : 반복문 등을 즉시 빠져나감
     double              :
     implements          :
-    protected           :
+    protected           : 슈퍼클래스의 protected 멤버는 두 가지 상황에서 접근을 허용한다. <1> 같은 패키지에 속한 다른 클래스에 접근을 허용한다. <2> 같은 패키지든 다른 패키지든 상속받는 서브 클래스에 접근을 허용한다.
     throw               :
 
     byte                :

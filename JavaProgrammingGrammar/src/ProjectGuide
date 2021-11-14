@@ -3,4 +3,10 @@
 예제 3-1 ) class ForSample            : 1부터 10까지 숫자의 합을 출력
 예제 3-2 ) class WhileSample          : 입력된 수의 평균 구하기
                                         --> 안드로이드 스튜디오로 이동 --> 샘플 앱 제작 (WhileSmaple)
+                                        --> 중단
 예제 3-3 ) class DoWhileSample        : a 부터 z 까지 출력
+                                        --> 중단
+
+!! 가이드 : 모바일이니까 문법 이런게 있구나 정도로 훌훌 읽어 넘어가기 (3일안에)
+
+챕터 3.3 배열 ) ArrayTest               : 배열에 관한 테스트 클래스
