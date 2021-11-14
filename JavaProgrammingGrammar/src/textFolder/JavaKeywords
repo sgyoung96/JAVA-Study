@@ -14,7 +14,7 @@
     do                  :
     goto                :
     private             : 슈퍼클래스의 멤버에 private 접근지정자가 지정되면 서브 클래스라도 자기 멤버 같이 직접 사용할 수 없다.
-    this                :
+    this                : 메소드 자기 자신에 대한.
 
     break               : 반복문 등을 즉시 빠져나감
     double              :
@@ -25,7 +25,7 @@
     byte                :
     else                :
     import              :
-    publilc             :
+    public              :
     throws              :
 
     case                :
@@ -55,5 +55,5 @@
     const               :
     float               :
     native              :
-    super               :
+    super               : 슈퍼클래스의 멤버에 접근 가능
     while               :
