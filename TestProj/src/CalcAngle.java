@@ -13,42 +13,68 @@ public class CalcAngle {
 
     public static void main(String[] args) {
 
-        /* 1사분면 */
-        lShoulderX = 0;
-        lShoulderY = 0;
-        rShoulderX = 2;
-        rShoulderY = 2;
-        test45Degree(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
-        System.out.println("***************************************");
+//        /* 1사분면 */
+//        lShoulderX = 0;
+//        lShoulderY = 0;
+//        rShoulderX = 2;
+//        rShoulderY = 2;
+////        test45Degree(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+////        System.out.println("***************************************");
+//        System.out.println("***************fixDelta****************");
+//        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);   // 135
+//        System.out.println("***************************************");
+//
+//        /* 3사분면 */
+//        lShoulderX = 0;
+//        lShoulderY = 0;
+//        rShoulderX = -2;
+//        rShoulderY = -2;
+////        test135Degree(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+////        System.out.println("***************************************");
+//        System.out.println("***************fixDelta****************");
+//        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);   // 45
+//        System.out.println("***************************************");
+//
+//        /* 음수 ~ 음수 */
+//        lShoulderX = -2;
+//        lShoulderY = -2;
+//        rShoulderX = -4;
+//        rShoulderY = -4;
+////        testMinusPoints(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+////        System.out.println("***************************************");
+//        System.out.println("***************fixDelta****************");
+//        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);   // 45
+//        System.out.println("***************************************");
+//
+//        /* 계산식 절댓값(양수)로 치환 */
+////        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+////        System.out.println("***************************************");
+//
+//        /* 2사분면 */
+//        lShoulderX = 0;
+//        lShoulderY = 0;
+//        rShoulderX = 2;
+//        rShoulderY = -2;
+//        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);   // 315
+//        System.out.println("***************************************");
 
-        /* 4사분면 */
-        rShoulderX = -2;
-        rShoulderY = -2;
-        test135Degree(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
-        System.out.println("***************************************");
+        // ************************************************************************************
+        // 양수 및 음수에 대하여 각각 예외 처리
+        // ************************************************************************************
+        testFixMinus(0,0,2,2); // 135       -135
+        testFixMinus(0,0,2,-2); // 315      135
+        testFixMinus(0,0,-2,-2); // 45      45
+        testFixMinus(0,0,-2,2); // 45       -45
 
-        /* 음수 ~ 음수 */
-        lShoulderX = -2;
-        lShoulderY = -2;
-        rShoulderX = -4;
-        rShoulderY = -4;
-        testMinusPoints(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
-        System.out.println("***************************************");
-
-        /* 계산식 절댓값(양수)로 치환 */
-        testFixDelta(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
-        System.out.println("***************************************");
+        testFixMinus(2,2,4,4); // 135       -135
+        testFixMinus(2,2,4,-2); // 315      116.xxx <- ?
+        testFixMinus(2,2,-2,-2); // 45      45
+        testFixMinus(-2,-2,-4,-4); // 45    45
     }
 
     /**
      * 추론 : 45 도 각도가 나와야 함
      * 결과 : 45.0
-     * 결론 :
-     * lShoulder = A = 기준이 되는 고정 값
-     * rShoulder = B = A 를 기준으로 (x, y) 만큼 이동하는 변화하는 값
-     * 프로젝트 적용 :
-     * lShoulder = 화면상 좌측에 위치한, 사람으로서는 오른쪽 어깨이지만 화면상으로는 좌측에 위치한 값
-     * rShoulder = 화면상 우측에 위치한, 사람으로서는 왼쪽 어깨이지만 화면상으로는 우측에 위치한 값
      */
     private static void test45Degree (double lShoulderX, double lShoulderY, double rShoulderX, double rShoulderY) {
         /* radian 구할 x, y 좌표 */
@@ -107,8 +133,15 @@ public class CalcAngle {
      */
     private static void testFixDelta(double lShoulderX, double lShoulderY, double rShoulderX, double rShoulderY) {
         /* radian 구할 x, y 좌표 */
-        deltaX = Math.abs(rShoulderX) - Math.abs(lShoulderX);
-        deltaY = Math.abs(rShoulderY) - Math.abs(lShoulderY);
+//        deltaX = rShoulderX - lShoulderX;
+//        deltaY = rShoulderY - lShoulderY;
+//        deltaX = Math.abs(rShoulderX) - Math.abs(lShoulderX);
+//        deltaY = Math.abs(rShoulderY) - Math.abs(lShoulderY);
+//        deltaX = Math.abs(rShoulderX - lShoulderX);
+//        deltaY = Math.abs(rShoulderY - lShoulderY);
+
+        deltaX = lShoulderX - rShoulderX;
+        deltaY = lShoulderY - rShoulderY;
 
         /* 구한 radian(theta(세타)) 를 각도로 변환 */
         angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
@@ -116,7 +149,35 @@ public class CalcAngle {
         /* 음수 값 보정 */
         double result = Math.abs(angle);
 
-        System.out.println(result);         // 45
-        System.out.println(180 - result);   // 135
+        System.out.println(result);         // 45 // --------> 가 나와야 함
+        // System.out.println(180 - result);   // 135
+    }
+
+    /**
+     * 음수 값 예외 처리 : 기준좌표 = rShoulder (A)
+     */
+    private static void testFixMinus(double lShoulderX, double lShoulderY, double rShoulderX, double rShoulderY) {
+        deltaX = lShoulderX - rShoulderX;
+        deltaY = lShoulderY - rShoulderY;
+
+//        if (rShoulderX < lShoulderX && rShoulderY < lShoulderY) { // 135
+//            angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+//            System.out.println("135 : " + Math.abs(angle));
+//        } else if (rShoulderX < lShoulderX && rShoulderY > lShoulderY) { // 315
+//            angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+//            System.out.println("135 : " + Math.abs(angle));
+//        } else if (rShoulderX > lShoulderX && rShoulderY > lShoulderY) { // 45
+//            angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+//            System.out.println("45 : " + Math.abs(angle));
+//        } else if (rShoulderX > lShoulderX && rShoulderY < lShoulderY) { // 45
+//            angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+//            System.out.println("45 : " + Math.abs(angle));
+//        }
+
+        angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+        /* 음수 값 보정 */
+        double result = Math.abs(angle);
+
+        System.out.println(result);
     }
 }
