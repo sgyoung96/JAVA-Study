@@ -13,14 +13,30 @@ public class newAngle {
 
     public static double result;     // 보정값
 
+    public static double lShoulderX2;
+    public static double lShoulderY2;
+    public static double midShoulderX;
+    public static double midShoulderY;
+
     public static void main(String[] args) {
 
-        lShoulderX = 0;
-        lShoulderY = 0;
-        rShoulderX = 0;
-        rShoulderY = 0;
+//        lShoulderX = 136.16776;
+//        lShoulderY = 98.033356;
+//        rShoulderX = 115.96721;
+//        rShoulderY = 102.60439;
 
-        calcAngle(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+//        lShoulderX = 0;
+//        lShoulderY = 0;
+//        rShoulderX = 2;
+//        rShoulderY = 2;
+
+        midShoulderX = 125.0;
+        midShoulderY = 83.0;
+        lShoulderX2 = 16.0;
+        lShoulderY2 = 86.0;
+
+//        calcAngle(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
+        calcAngle2(midShoulderX, midShoulderY, lShoulderX2, lShoulderY2);
     }
 
     private static void calcAngle(double lShoulderX, double lShoulderY, double rShoulderX, double rShoulderY) {
@@ -61,5 +77,16 @@ public class newAngle {
             결과 값이 45 / 315 가 나왔으므로, lShoulder 가 기준이 맞고, lShoulder 가 화면상 오른쪽에 위치한, 인체로써는 왼쪽 어깨가 맞음
             우리가 원하는 보정값은 315
          */
+    }
+
+    private static void calcAngle2(double lShoulderX, double lShoulderY, double rShoulderX, double rShoulderY) {
+        /* radian 구할 x, y 좌표 */
+        deltaX = rShoulderX - lShoulderX;
+        deltaY = rShoulderY - lShoulderY;
+
+        /* 구한 radian(theta(세타)) 를 각도로 변환 */
+        angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+
+        System.out.println(angle);
     }
 }
