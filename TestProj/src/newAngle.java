@@ -32,8 +32,8 @@ public class newAngle {
 
         midShoulderX = 125.0;
         midShoulderY = 83.0;
-        lShoulderX2 = 16.0;
-        lShoulderY2 = 86.0;
+        lShoulderX2 = 133.0;
+        lShoulderY2 = 87.0;
 
 //        calcAngle(lShoulderX, lShoulderY, rShoulderX, rShoulderY);
         calcAngle2(midShoulderX, midShoulderY, lShoulderX2, lShoulderY2);
